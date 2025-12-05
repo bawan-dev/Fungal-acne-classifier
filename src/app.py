@@ -13,11 +13,19 @@ from src.safety_score import calculate_safety_score
 
 MODEL_PATH = "models/tfidf_multiclass_model.joblib"
 
-
 @st.cache_resource
 def load_model():
-    return joblib.load(MODEL_PATH)
+    model = joblib.load(MODEL_PATH)
 
+    # Safety check to prevent Streamlit Cloud from loading the wrong model
+    if not hasattr(model, "classes_") or len(model.classes_) != 10:
+        raise ValueError(
+            f"Incorrect model loaded from {MODEL_PATH}. "
+            f"Expected 10-class model but got {len(getattr(model, 'classes_', []))} classes.\n"
+            "Make sure ONLY tfidf_multiclass_model.joblib exists in /models."
+        )
+
+    return model
 
 # -------------------------------------------------------------
 # 🔴 KEYWORD LISTS
