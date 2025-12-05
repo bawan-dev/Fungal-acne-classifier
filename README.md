@@ -1,112 +1,123 @@
-<<<<<<< HEAD
-🧴 Fungal Acne Ingredient Classifier
-A 10-Class Machine Learning Model for Skincare Safety Analysis
+# 🧴 Fungal Acne Ingredient Classifier (10-Class ML Model)
 
-This project is a machine learning-powered web app that:
+A machine learning web app that analyzes skincare product ingredient lists,  
+classifies them into **10 dermatological categories**, and generates a  
+**fungal acne (Malassezia) safety score** with full explanations.
 
-Classifies skincare formulas into 10 ingredient categories
+🔗 **Live Demo:** https://fungal-acne-classifier-6jla5qnhtv8itpkkb5nfhw.streamlit.app/  
+_(replace with your actual app link)_
 
-Evaluates fungal acne (Malassezia) safety
+---
 
-Provides ingredient-by-ingredient breakdowns
+## 🚀 Features
 
-Includes Human Mode (simple explanations) + Expert Mode (LIME, probabilities, model confidence)
+### 🔍 Ingredient Classification (10 Categories)
+The model classifies ingredients into:
 
-Runs completely in Streamlit
+- `safe`
+- `neutral`
+- `malassezia_trigger`
+- `comedogenic`
+- `irritant`
+- `fragrance_heavy`
+- `fatty_acid`
+- `emollient_heavy`
+- `surfactant`
+- `preservative`
 
-🚀 Features
-🧠 Multi-Class ML Model
+Model trained on **1,000+ synthetic labeled samples** using TF-IDF + Logistic Regression (multi-class).
 
-Trained on 1,000+ curated examples with 10 labels:
+---
 
-safe
+## 🧪 Fungal Acne Safety Score (0–10)
 
-neutral
+The app computes a safety score using domain knowledge:
+- Detects fatty acids, esters, polysorbates, sorbitan compounds
+- Flags questionable ingredients like dimethicone or caprylic triglyceride
+- Highlights each ingredient in **green (safe)**, **yellow (neutral)** or **red (trigger)**
 
-malassezia_trigger
+---
 
-comedogenic
+## 🧠 Explainability (LIME)
 
-irritant
+The app includes an **Expert Mode** that shows:
+- Model probabilities for all 10 classes  
+- A bar chart of confidence levels  
+- LIME explanation table for the predicted label  
+This gives transparency into *why* the model predicted a certain category.
 
-fragrance_heavy
+---
 
-fatty_acid
+## 🖼 Screenshots
 
-emollient_heavy
+### 🏠 Home Screen
+*(Screenshot 1 goes here)*
 
-surfactant
+### 🧴 Example Ingredient Analysis
+*(Screenshot 2 goes here)*
 
-preservative
+### 🔎 LIME Explainability View
+*(Screenshot 3 goes here)*
 
-🔍 Human Mode
+---
 
-Clear skincare explanation
+## 📦 Tech Stack
 
-Fungal acne score (0–10)
+- Python 3.10  
+- Streamlit (UI)  
+- Scikit-learn (ML model)  
+- LIME (explainability)  
+- Pandas / NumPy  
+- Joblib (model saving/loading)
 
-Ingredient breakdown (safe / mild / high-risk)
+---
 
-🧪 Expert Mode
+## 🏗 How It Works
 
-Class probabilities
+### 1️⃣ Ingredient Preprocessing  
+Ingredients are split, normalized, and cleaned.
 
-Confidence badge
+### 2️⃣ TF-IDF Vectorization  
+Text converted into numerical features using word n-grams.
 
-LIME interpretability
+### 3️⃣ Multiclass Logistic Regression  
+Model predicts the most likely ingredient category.
 
-Bar charts & feature weights
+### 4️⃣ Safety Score Algorithm  
+Domain-based heuristic adds up:
+- High-risk fatty acids
+- Esters
+- Polysorbates
+- Sorbitan compounds
+- Comedogenic ingredients
 
-ML explainability for recruiters
+### 5️⃣ Streamlit Front-End  
+Interactive web UI for live predictions.
 
-🌐 Deployable Anywhere
+---
 
-Streamlit Cloud
+## 🔧 Installation (Local)
+git clone https://github.com/bawan-dev/Fungal-acne-classifier.git
 
-HuggingFace Spaces
-
-Local usage (streamlit run src/app.py)
-
-🗂 Project Structure
-src/
-│   app.py                  # Streamlit UI
-│   preprocessing.py        # Ingredient cleaning and parsing
-│   safety_score.py         # Fungal acne scoring logic
-│   train_multiclass.py     # Model training script
-│
-models/
-│   tfidf_multiclass_model.joblib
-│
-data/
-│   ingredients_multilabel.csv
-
-🛠 Installation
-git clone https://github.com/bawans-dev/fungal-acne-classifier.git
-cd fungal-acne-classifier
+cd Fungal-acne-classifier
 pip install -r requirements.txt
 streamlit run src/app.py
 
-🧴 Example Output
+---
 
-(Add screenshots here after deployment)
+## ✨ Future Improvements
 
-📦 Deployment
-Streamlit Cloud
+- Live product database scanning  
+- Barcode image detection  
+- Ingredient embedding models (BERT or BioBERT)  
+- Real skincare dataset training  
+- User accounts + saved scans  
 
-Push to GitHub → Create new app → Select src/app.py
+---
 
-HuggingFace Spaces
+## 👤 Author
 
-Create Space → Select “Streamlit” → Upload repo →
+**Bawan Sabah**  
+Machine Learning & Robotics Student  
+GitHub: https://github.com/bawan-dev  
 
-📄 License
-
-MIT License (recommended)
-
-✨ Author
-
-Bawan Sabah – Machine Learning & Applied AI
-=======
-# Fungal-acne-classifier
-Machine learning app that classifies skincare ingredients into 10 categories and evaluates fungal acne safety.
->>>>>>> 0b1c32e1d3b59f0f7b6b7ac1d6052b637b11b2e7
