@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 🧴 Fungal Acne Ingredient Classifier
 A 10-Class Machine Learning Model for Skincare Safety Analysis
 
@@ -105,3 +106,7 @@ MIT License (recommended)
 ✨ Author
 
 Bawan Sabah – Machine Learning & Applied AI
+=======
+# Fungal-acne-classifier
+Machine learning app that classifies skincare ingredients into 10 categories and evaluates fungal acne safety.
+>>>>>>> 0b1c32e1d3b59f0f7b6b7ac1d6052b637b11b2e7
