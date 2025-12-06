@@ -12,6 +12,7 @@ except ImportError:  # pragma: no cover
     FPDF = None
 
 from src import embeddings_utils
+from src import ingredient_lookup
 from src.preprocessing import join_ingredients_for_model, split_ingredients
 from src.safety_score import calculate_safety_score
 
@@ -216,7 +217,7 @@ class AnalysisEngine:
         pdf = FPDF()
         pdf.add_page()
         pdf.set_font("Arial", "B", 14)
-        pdf.cell(0, 10, "Fungal Acne Analysis Report", ln=True)
+        pdf.cell(0, 10, "DermaLens Skincare Analysis", ln=True)
 
         pdf.set_font("Arial", "", 11)
         pdf.cell(0, 8, f"Product: {result.get('product_name', 'N/A')}", ln=True)
@@ -288,13 +289,10 @@ class AnalysisEngine:
 
 def fetch_product_ingredients(product_name: str) -> Dict[str, str]:
     """
-    Placeholder for future network-backed product ingredient fetching.
+    Fetch ingredients for a product name via lightweight web search.
+    Returns a dict with status, message, and optional ingredients text.
     """
-    return {
-        "status": "unavailable",
-        "message": "Brand auto-detection is offline in this environment.",
-        "ingredients": "",
-    }
+    return ingredient_lookup.search_ingredients_by_product_name(product_name)
 
 
 def extract_ingredients_from_image(upload) -> str:
