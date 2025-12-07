@@ -1,5 +1,6 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 streamlit==1.33.0
-scikit-learn==1.7.2
+scikit-learn==1.4.2
 pandas==2.2.1
 numpy==1.26.4
 lime==0.2.0.1
@@ -9,7 +10,7 @@ requests
 beautifulsoup4
 lxml
 sentence-transformers==2.7.0
-torch
+torch==2.3.1
 fpdf2==2.7.9
 Pillow
 pyzbar
